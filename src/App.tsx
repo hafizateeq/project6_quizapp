@@ -80,6 +80,7 @@ function App() {
   return (
     <div className="App">
       <h1>Quiz App</h1>
+      {gameover || userAnswer.length === useTotalQuestions ?
       <div className="startPage">
         {gameover || userAnswer.length === useTotalQuestions ?
           <Selection
@@ -94,7 +95,7 @@ function App() {
         {gameover || userAnswer.length === useTotalQuestions ?
           <button className="start" onClick={startQuiz}>Start Quiz</button> : null
         }
-      </div>
+      </div> : null}
       {!gameover ? <p className="score">Score: {score}</p> : null}
       {loading ? <p>Loading Questions...</p> : null}
       {!loading && !gameover && questions[number] ?
